@@ -41,27 +41,6 @@ app.use('/', categoriesController)
 app.use('/', articlesController)
 app.use('/', usersController)
 
-app.get('/session', (req, res) => {
-    req.session.treinamento = "NodeJS";
-    req.session.user = {
-        username: 'Nikolas',
-        email: 'nik@go.com',
-        id: 10
-    }
-    req.session.ano = 2022;
-    req.session.email = 'email@email.com';
-
-    res.send("Sessão gerada com sucesso")
-})
-app.get('/leitura', (req, res) => {
-    res.json({
-        treinamento: req.session.treinamento,
-        ano: req.session.ano,
-        email: req.session.email,
-        user: req.session.user
-    })
-})
-
 
 app.get('/', (req, res) => {
     Article.findAll({
